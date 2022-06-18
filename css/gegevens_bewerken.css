@@ -1,0 +1,56 @@
+.container {
+    max-width: 400px;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+.gegevens-form-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f6e9dc;
+    
+
+}
+
+.gegevens-form-container > form > h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gegevens-form-container > form > img {
+    width: 200px;
+    height: 200px;
+    margin-left: 50px;
+}
+
+.gegevens-form-container > form > .box {
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px 2px;
+    margin: 10px 0px;
+    background-color: white;
+
+}
+
+.knop {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: green;
+    color: white;
+    text-align: center;
+}
+
+.message {
+    display: block;
+    padding: 20px 100px;
+    margin-top: 50px;
+    background-color: #f6e9dc;
+    text-align: center;
+}
+

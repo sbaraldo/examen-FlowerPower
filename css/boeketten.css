@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav {
+    background-color: #ffffff;
+    color: #000000;
+    list-style: none;
+    text-align: right;
+    padding: 20px 0 0 0;
+}
+
+.nav > .logo {
+    font-size: 30px;
+}
+
+.nav > li {
+    display: inline-block;
+    padding: 0 25px 0 25px;
+    font-size: 16px;
+}
+
+.nav > li > a {
+    text-decoration: none; 
+    color: #000000;
+}
+
+
+.logo {
+    color: #000000;
+    float: left;
+    padding-left: 25px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.titel {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+
+}
+
+.knop {
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+}
+
+.producten > .box-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.producten > .box-container > .box {
+    background-color: #FFCFC0;
+    border: black 1px solid;
+    /* box-shadow: #f6e9dc; */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.producten > .box-container > .box > .image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+
+}
+
+.naam {
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.omschrijving {
+    font-size: 14px;
+
+}
+
+.prijs {
+    font-size: 18px;
+    
+}
+
+.aantal {
+    width: 100px;
+    padding: 1px 5px;
+    font-size: 12px;
+    border-radius: 10px;
+}
