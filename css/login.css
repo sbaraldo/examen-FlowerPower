@@ -1,72 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
 body {
     background-image: url('../img/bloemen.jpg');
     font: 14px Georgia, 'Times New Roman', Times, serif;
 }
 
-.nav {
-    background-color: #ffffff;
-    margin-top: -8px;
-    height: 20px;
-    color: #000000;
-    list-style: none;
-    text-align: right;
-    padding: 20px 0 0 0;
+.logo_titel {
+  width: fit-content;
 }
 
-.nav > .logo {
-    font-size: 30px;
+.logo_titel h1 {
+    position: relative;
+    top: 2vh;
+    left: 2vw;
 }
 
-.logo {
-    color: #000000;
-    float: left;
-    padding-left: 10px;
-    margin-top: -20px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-section {
+.login_form {
     position: absolute;
-    top: 150px;
+    top: 20vh;
     left: 0;
-    bottom: 0;
     right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.container {
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1em;
+    gap: 10em;
 }
 
-.login {
-    display: flex;
-    gap: 2em;
+.login_titel {
     position: relative;
-    left: 0.7em;
+    top: 10vh;
+}
+
+.login_titel h1 {
+    font-size: 1.5rem;
+}
+
+.form_container {
+    height: 100%;
     display: flex;
-    align-items: flex-end;
-    padding: 70px;
+    flex-direction: column;
+    gap: 4em;
+    align-items: center;
+    position: relative;
 }
 
-.login label {
-    display: block;
-    width: 15vw;
-    font-size: 20px;
+.login_input {
+    margin-top: 15vh;
+    gap: 2em;
+    display: flex;
+    height: 13vh;
+    position: relative;
 }
 
-.login input {
-    padding: 10px;
+.input_box {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.input_box > input {
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.login_box {
+    position: absolute;
+    bottom: 0;
     width: 100%;
 }
 
-.login button {
-    height: 40%;
-    min-width: 5vw;
+.login_box > button {
     border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+.registreer_box {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+
+.login_admin_link {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+.admin_link_knop {
+    min-width: 7vw;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
 }

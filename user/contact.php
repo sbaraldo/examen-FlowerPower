@@ -7,6 +7,7 @@
     <img class="banner-img" src="../img/bloemenwinkel2.jpg">
 </div>
 
+<!-- contact section -->
 <div id="contact">
     <div>
         <h2 class="contactheader">Contact</h2>

@@ -2,6 +2,14 @@
 require '../user/header.php';
 include 'dashnav.php';
 
+//Alleen admin met rol 1 heeft toegang//
+if(!$_SESSION['admin_rol'] == '1')
+{
+    header('Location: dashboard.php?Alleen-admin-heeft-toegang');
+    exit(0);
+}
+
+// functie artikelen toevoegen door POST Methode en declareren en initialiseren//
 if(isset($_POST['user_toevoegen'])) {
     $voornaam = $_POST['voornaam'];
     $tussenvoegsel = $_POST['tussenvoegsel'];
@@ -10,16 +18,16 @@ if(isset($_POST['user_toevoegen'])) {
     $wachtwoord = $_POST['wachtwoord'];
     $rol = $_POST['rol'];
 
-    
-    if(empty($voornaam) || empty($tussenvoegsel) || empty($achternaam) || empty($email) || empty($wachtwoord) || empty($rol)) {
+    //kijken als het empty is, als het empty is krijg je een bericht en anders query insert into om te toevoegen//
+    if(empty($voornaam) || empty($achternaam) || empty($email) || empty($wachtwoord) || empty($rol)) {
         $message[] = 'Vul alles in';
     } 
     else {
-        $query = mysqli_query($conn, "INSERT INTO users (voornaam, tussenvoegsel , achternaam, email, wachtwoord, rol)
+        $query_insert = mysqli_query($conn, "INSERT INTO adminuser (voornaam, tussenvoegsel , achternaam, email, wachtwoord, rol)
         VALUES ('$voornaam', '$tussenvoegsel', '$achternaam', '$email', '$wachtwoord', '$rol')");
         
         
-        if($query) {
+        if($query_insert) {
             $message[] = 'User toegevoegd gelukt!';
         }
         else {
@@ -29,17 +37,17 @@ if(isset($_POST['user_toevoegen'])) {
     } 
 }
 
-//functie product verwijderen//
+//functie verwijder gegevens met GET methode, kijken is het leeg of gedeclareerd is dan query delete om idadmin te verwijderen//
 if(isset($_GET['verwijder'])) {
 
-    $iduser = $_GET['verwijder'];
-    mysqli_query($conn, "DELETE FROM users WHERE iduser = $iduser");
+    $idadmin = $_GET['verwijder'];
+    mysqli_query($conn, "DELETE FROM adminuser WHERE idadmin = $idadmin");
     header('location: ../admin/admingegevens.php');
 }
 ?>
 
    
-
+<!-- formulier om medewerker toevoegen -->
 <div class="container">
     <div class="gegevens-form-container">
         <?php 
@@ -56,15 +64,15 @@ if(isset($_GET['verwijder'])) {
             <input type="text" placeholder="Voornaam" name="voornaam" class="box">
             <input type="text" placeholder="Tussenvoegsel" name="tussenvoegsel" class="box">
             <input type="text" placeholder="Achternaam" name="achternaam" class="box">
-            <input type="email" placeholder="Email" name="email" class="box">
-            <input type="password" placeholder="Wachtwoord" name="wachtwoord" class="box">
+            <input type="text" placeholder="Email" name="email" class="box">
+            <input type="text" placeholder="Wachtwoord" name="wachtwoord" class="box">
             <input type="text" placeholder="Rol" name="rol" class="box">
             <input type="submit" class="knop" name="user_toevoegen" value="User toevoegen">
         </form>
     </div>
 
 
-
+        <!-- tabel om toegevoegde medewerkers te laten zien -->
     <div class="toon-gegevens">
         <table class="toon-gegevens-table">
             <thead>
@@ -79,10 +87,11 @@ if(isset($_GET['verwijder'])) {
                 </tr>
             </thead>
             <?php
-                $select = mysqli_query($conn, "SELECT * FROM users");
-                if(mysqli_num_rows($select) > 0) 
+            // selecteert de adminuser (medewerkers) waarvan alleen de gegevens met rol en haalt gegevens van de database//
+                $select_admin = mysqli_query($conn, "SELECT * FROM adminuser WHERE rol ");
+                if(mysqli_num_rows($select_admin) > 0) 
                 {
-                    while($row = mysqli_fetch_assoc($select)) 
+                    while($row = mysqli_fetch_assoc($select_admin)) 
                     {
                         ?>
                             <tr>
@@ -93,9 +102,9 @@ if(isset($_GET['verwijder'])) {
                                 <td><?php echo $row['wachtwoord']; ?></td>
                                 <td><?php echo $row['rol']; ?></td>
                                 <td>
-                                    <a href="../admin/admingegevens_bewerken.php?bewerk=<?php echo $row['iduser']?>"> 
+                                    <a href="../admin/admingegevens_bewerken.php?bewerk=<?php echo $row['idadmin']?>"> 
                                     <button class="bewerken_knop">Bewerken</button></a>
-                                    <a href="../admin/admingegevens.php?verwijder=<?php echo $row['iduser']?>"> 
+                                    <a href="../admin/admingegevens.php?verwijder=<?php echo $row['idadmin']?>"> 
                                     <button class="verwijder_knop">Verwijder</button></a>
                                 </td>
                             </tr>

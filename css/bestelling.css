@@ -29,7 +29,13 @@
     font-weight: bold;
 }
 
-.bestellingen > .box-container {
+.titel {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.bestellingen .box-container {
     max-width: 1500px;
     margin: 50px auto;
     display: grid;
@@ -39,35 +45,10 @@
     justify-content: center;
 }
 
-.bestellingen > .box-container > .bestelling-box {
+.bestellingen .box-container .bestellingen_box {
     background-color: #FFCFC0;
     border: black 1px solid;
     border-radius: 10px;
     padding: 20px;
     position: relative;
-}
-
-.verwijder_bestelling_knop {
-    display: inline-block;
-    border-radius: 5px;
-    border: 1px solid;
-    margin-top: 10px;
-    width: 100px;
-    text-align: center;
-    font-size: 14px;
-    color: white;
-    background-color: red;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.update_bestelling_optie_knop {
-    display: inline-block;
-    border-radius: 5px;
-    border: 1px solid;
-    margin-top: 10px;
-    text-align: center;
-    color: white;
-    background-color: green;
-    cursor: pointer;
 }

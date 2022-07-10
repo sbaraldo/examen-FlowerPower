@@ -1,17 +1,3 @@
-<?php
-include '../sessions/db.php';
-
-// if(isset($_SESSION['auth'])) {
-//     if($_SESSION['auth_role']  == '1') {
-//         header('Location: dashboard.php');
-//         exit(0);
-//     } else {
-//         header('Location: index.php');
-//         exit(0);
-//     }
-// }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +10,8 @@ include '../sessions/db.php';
         <div class="logo"><a href="index.php">Flower Power</a></div>
     </ul>
     <section>
+     
+    <!-- Registreer formulier -->
     <div class="container">
         <h1>Registreer</h1>
         <form class="register_form" action="../sessions/register.session.php" method="POST">

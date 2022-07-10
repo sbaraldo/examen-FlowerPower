@@ -34,7 +34,7 @@
 
 }
 
-.knop {
+.knop_gegevens_bewerken {
     display: block;
     width: 100%;
     cursor: pointer;
@@ -44,6 +44,7 @@
     background-color: green;
     color: white;
     text-align: center;
+    text-decoration: none;
 }
 
 .message {

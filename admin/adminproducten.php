@@ -2,49 +2,50 @@
 require '../user/header.php'; 
 include 'dashnav.php';
 
-//functie product toevoegen//
+//functie product toevoegen door POST methode en declareren en initialiseren//
 if(isset($_POST['product_toevoegen'])) {
 
     $naam = $_POST['naam'];
     $omschrijving = $_POST['omschrijving'];
     $prijs = $_POST['prijs'];
-    $winkel = $_POST['id_winkel'];
 
-    $pic_name = $_FILES['foto']['name'];
-    $pic_size = $_FILES['foto']['size'];
-    $pic_temp_name = $_FILES['foto']['tmp_name'];
+    $foto_name = $_FILES['foto']['name'];
+    $foto_size = $_FILES['foto']['size'];
+    $foto_temp_name = $_FILES['foto']['tmp_name'];
     $error = $_FILES['foto']['error'];
     
     if($error === 0) 
     {
-        if($pic_size > 1000000)
+        if($foto_size > 1000000)
         {
-            header('location: ../admin/producten.php?fileTobig');
+            header('location: ../admin/adminproducten.php?File-te-groot');
             exit();
         } else 
         {
-            $pic_extention = pathinfo($pic_name, PATHINFO_EXTENSION);
-            $pic_ext_conv = strtolower($pic_extention);
+            //Overzetten de foto gegevens en mag bepaalde foto bestanden toelaten//
+            $foto_extention = pathinfo($foto_name, PATHINFO_EXTENSION);
+            $foto_ext_conv = strtolower($foto_extention);
             $exst = array("jpg", "jpeg", "png");
 
-            if(in_array($pic_ext_conv, $exst)) 
+            if(in_array($foto_ext_conv, $exst)) 
             {
-                $new_pic_naam = uniqid("IMG-", true).'.'.$pic_ext_conv;
-                $pic_path = '../img_upload/'.$new_pic_naam;
-                move_uploaded_file($pic_temp_name, $pic_path);
+                //foto's krijgen nieuwe id en upload naar ../img_upload/ //
+                $new_foto_naam = uniqid("IMG-", true).'.'.$foto_ext_conv;
+                $foto_path = '../img_upload/'.$new_foto_naam;
+                move_uploaded_file($foto_temp_name, $foto_path);
 
-                if(empty($naam) || empty($omschrijving) || empty($prijs) || empty($winkel) || empty($new_pic_naam))
+                //kijken als het empty is, als het empty is krijg je een bericht en als het niet empty is query insert into om te toevoegen//
+                if(empty($naam) || empty($omschrijving) || empty($prijs) || empty($new_foto_naam))
                 {
-                    header('location: ../admin/producten.php?EMPTY');
+                    header('location: ../admin/adminproducten.php?Leeg');
                     $message[] = 'Vul alles in';
                     exit();
                 } else 
                 {
-                    $query = mysqli_query($conn, "INSERT INTO artikel (winkelid, naam ,omschrijving, prijs, foto, winkelnaam)
-                    VALUES ('$winkel', '$naam', '$omschrijving', '$prijs', '$new_pic_naam',
-                    (SELECT winkelplaats FROM winkel WHERE idwinkel = $winkel))") or die (mysqli_error($conn));
+                    $query_insert = mysqli_query($conn, "INSERT INTO artikel (naam ,omschrijving, prijs, foto)
+                    VALUES ('$naam', '$omschrijving', '$prijs', '$new_foto_naam')") or die ('error');
 
-                    if($query) {
+                    if($query_insert) {
                         $message[] = 'Product toegevoegd gelukt!';
                     }
                     else {
@@ -56,12 +57,13 @@ if(isset($_POST['product_toevoegen'])) {
     }
 }
 
-//functie product verwijderen//
+//functie verwijderen product met GET method, kijken of het leeg of gedeclareerd is dan query delete om te verwijderen//
 if(isset($_GET['verwijder'])) {
 
     $idartikel = $_GET['verwijder'];
     mysqli_query($conn, "DELETE FROM artikel WHERE idartikel = $idartikel");
-    header('location: ../admin/producten.php');
+    mysqli_query($conn, "DELETE FROM winkelwagen WHERE artikelid = $idartikel");
+    header('location: ../admin/adminproducten.php');
 }
 
 ?>
@@ -69,7 +71,8 @@ if(isset($_GET['verwijder'])) {
 <!-- product toevoegen formulier -->
 <div class="container">
     <div class="product-form-container">
-                
+            
+    <!-- bericht laten zien -->
         <?php 
             if(isset($message)) {
                 foreach($message as $message) {
@@ -83,25 +86,12 @@ if(isset($_GET['verwijder'])) {
             <textarea cols="30" rows="5" placeholder="Omschrijving" name="omschrijving" class="box"></textarea>
             <input type="number"  min="0" placeholder="Prijs" name="prijs" class="box">
             <input type="file" accept="image/jpg, image/jpeg, image/png" name="foto" class="box"> 
-            <select name="id_winkel">
-                <option>SELECT</option>
-                <?php
-                    $query_select = mysqli_query($conn, "SELECT * FROM winkel");
-                    while($query_data = mysqli_fetch_array($query_select))
-                    {
-                        ?>
-                        <option value="<?=$query_data['idwinkel'];?>"><?=$query_data['winkelplaats'];?></option>
-                        <?php
-                    } 
-                ?>
-            </select>
             <input type="submit" class="knop" name="product_toevoegen" value="Product toevoegen">
         </form>
     </div>
 
     
         
-    <!-- gegevens selecteren van artikel -->
         <!-- tabel om toegevoegde producten te laten zien -->
         <div class="toon-product">
         <table class="toon-product-table">
@@ -115,10 +105,12 @@ if(isset($_GET['verwijder'])) {
                 </tr>
             </thead>
             <?php 
-                $select = mysqli_query($conn, "SELECT * FROM artikel");
-                if(mysqli_num_rows($select) > 0) 
+
+                //gegevens selecteren van artikel en ophalen van de database// 
+                $select_artikel = mysqli_query($conn, "SELECT * FROM artikel");
+                if(mysqli_num_rows($select_artikel) > 0) 
                 {
-                  while($row = mysqli_fetch_assoc($select)) 
+                  while($row = mysqli_fetch_assoc($select_artikel)) 
                   { 
                     ?>
                         <tr>
@@ -129,7 +121,7 @@ if(isset($_GET['verwijder'])) {
                             <td>
                                 <a href="../admin/adminproducten_bewerken.php?bewerk=<?php echo $row['idartikel']?>"> 
                                 <button class="bewerken_knop">Bewerken</button></a>
-                                <a href="../admin/producten.php?verwijder=<?php echo $row['idartikel']?>"> 
+                                <a href="../admin/adminproducten.php?verwijder=<?php echo $row['idartikel']?>"> 
                                 <button class="verwijder_knop">Verwijder</button></a>
                             </td>
                         </tr>

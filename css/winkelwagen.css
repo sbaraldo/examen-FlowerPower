@@ -1,9 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
 .nav {
     background-color: #ffffff;
     color: #000000;
@@ -35,53 +29,92 @@ body {
     font-weight: bold;
 }
 
-/* .box h4 {
+.winkelwagen > .box-container {
+    max-width: 1500px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.winkelwagen > .box-container > .box {
+    background-color: #FFCFC0;
+    border: black 1px solid;
+    border-radius: 10px;
     padding: 20px;
-    width: 50%;
-    border: solid 1px black;
+    text-align: center;
+    position: relative;
 }
 
-.box p {
-    padding: 20px;
-    width: 50%;
-    border: solid 1px black;
+.winkelwagen > .box-container > .box > .image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
 }
 
-.winkelwagen {
-    margin-top: 10vh;
+.naam {
+    font-size: 20px;
+    font-weight: bold
 }
 
-.box_wrapper {
-    display: flex;
-    width: 92%;
-    margin: auto;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 3em;
+.omschrijving {
+    font-size: 14px;
 }
 
-.item_info {
-    flex-basis: 31%;
-    border: solid 1px black;
+.prijs {
+    font-size: 18px;
 }
 
-
-.box-container {
-    width: 100%;
+.verwijder_winkelwagen_knop {
+    display: inline-block;
+    border-radius: 10px;
+    border: black 1px solid;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    background-color: red;
+    cursor: pointer;
 }
 
-.box {
-    display: flex;
-    flex-wrap: wrap;
+.update_winkelwagen_knop {
+    display: inline-block;
+    border-radius: 10px;
+    border: black 1px solid;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    background-color: green;
+    cursor: pointer; 
 }
 
-.box_img {
-    display: block;
-    width: 100%;
-    height: 30vh;
+.aantal {
+    width: 100px;
+    padding: 1px 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: 1px black solid;
 }
 
-img {
-    width: 100%;
-    height: 100%;
-} */
+.winkelwagen > .winkelwagen-totaal {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+    background-color: #FFCFC0;
+    border: black solid 1px;
+    border-radius: 5px;
+}
+
+.bestel_knop {
+    width: 200px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}

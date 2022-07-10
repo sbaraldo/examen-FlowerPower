@@ -1,7 +1,6 @@
 body {
     background-image: url('../img/bloemen.jpg');
     font: 14px Georgia, 'Times New Roman', Times, serif;
-
 }
 
 .nav {
@@ -74,7 +73,6 @@ section {
     position: relative;
     left: 4.5vw;    
     width: 35vw;
-
 }
 
 .register_form input {
@@ -82,10 +80,12 @@ section {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
+    border:  black 1px solid;
 }
 
 .register_form button {
     padding: 5px;
     font-size: 15px;
     border-radius: 5px;
+    border: black solid 1px;
 }

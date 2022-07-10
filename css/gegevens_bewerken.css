@@ -10,8 +10,6 @@
     padding: 10px;
     border-radius: 10px;
     background-color: #f6e9dc;
-    
-
 }
 
 .gegevens-form-container > form > h3 {
@@ -28,10 +26,10 @@
 .gegevens-form-container > form > .box {
     width: 100%;
     border-radius: 10px;
+    border: 1px black solid;
     padding: 5px 2px;
     margin: 10px 0px;
     background-color: white;
-
 }
 
 .knop {
@@ -39,6 +37,7 @@
     width: 100%;
     cursor: pointer;
     border-radius: 10px;
+    border: black solid 1px;
     margin-top: 10px;
     padding: 5px;
     background-color: green;
@@ -53,4 +52,3 @@
     background-color: #f6e9dc;
     text-align: center;
 }
-
