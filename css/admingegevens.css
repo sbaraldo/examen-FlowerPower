@@ -41,7 +41,6 @@
     padding: 10px;
     border-radius: 10px;
     background-color: #f6e9dc;
-
 }
 
 .gegevens-form-container > form > h3 {
@@ -55,7 +54,6 @@
     padding: 5px 2px;
     margin: 10px 0px;
     background-color: white;
-
 }
 
 .knop {
@@ -79,7 +77,6 @@
 
 .toon-gegevens {
     margin: 20px -200px;
-
 }
 
 .toon-gegevens .toon-gegevens-table {
@@ -90,20 +87,17 @@
 
 .toon-gegevens > .toon-gegevens-table > thead {
    background-color: #f6e9dc;
-
 }
 
 .toon-gegevens > .toon-gegevens-table th {
     padding: 5px;
     font-size: 18px;
-
 }
 
 .toon-gegevens > .toon-gegevens-table td {
     padding: 5px;
     font-size: 18px;
     border-bottom: black;
-
 }
 
 .bewerken_knop {

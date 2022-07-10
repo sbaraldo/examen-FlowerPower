@@ -74,23 +74,19 @@
     height: 200px;
     width: 200px;
     object-fit: cover;
-
 }
 
 .naam {
     font-size: 20px;
     font-weight: bold;
-
 }
 
 .omschrijving {
     font-size: 14px;
-
 }
 
 .prijs {
     font-size: 18px;
-    
 }
 
 .aantal {

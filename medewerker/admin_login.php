@@ -19,7 +19,7 @@
     <section class="login_form">
         <div class="form_container">
             <div class="login_titel">
-                <h1>login Admin</h1>
+                <h1>Login Admin</h1>
             </div>
 
             <form class="login_input" action="../sessions/admin.login.php" method="POST">

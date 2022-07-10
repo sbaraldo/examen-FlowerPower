@@ -41,7 +41,6 @@
     padding: 10px;
     border-radius: 10px;
     background-color: #f6e9dc;
-
 }
 
 .product-form-container > form > h3 {
@@ -55,7 +54,6 @@
     padding: 5px 2px;
     margin: 10px 0px;
     background-color: white;
-
 }
 
 .knop {
@@ -79,7 +77,6 @@
 
 .toon-product {
     margin: 20px -100px;
-
 }
 
 .toon-product .toon-product-table {
@@ -90,20 +87,17 @@
 
 .toon-product > .toon-product-table > thead {
    background-color: #f6e9dc;
-
 }
 
 .toon-product > .toon-product-table th {
     padding: 5px;
     font-size: 18px;
-
 }
 
 .toon-product > .toon-product-table td {
     padding: 5px;
     font-size: 18px;
     border-bottom: black;
-
 }
 
 .bewerken_knop {
@@ -123,4 +117,3 @@
     padding: 5px;
     cursor: pointer;
 }
-

@@ -43,16 +43,14 @@
     margin-top: -20px; 
 }
 
-
 .contactheader {
     display: flex;
     justify-content: center;
 }
 
-
 .contactheader_section {
     display: flex;
-    gap: 5em;
+    gap: 80px;
     justify-content: center;
     padding: 25px;
 }
@@ -74,8 +72,8 @@
 
 .openingstijden {
     display: flex;
-    padding-left: 30vw;
-    gap: 6em;
+    padding-left: 450px;
+    gap: 95px;
 }
 
 .figure {

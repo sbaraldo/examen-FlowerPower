@@ -15,51 +15,51 @@ body {
 
 .logo_titel h1 {
     position: relative;
-    top: 2vh;
-    left: 2vw;
+    top: 15px;
+    left: 15px;
 }
 
 .login_form {
     position: absolute;
-    top: 20vh;
+    top: 150px;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    gap: 10em;
+    gap: 160px;
 }
 
 .login_titel {
     position: relative;
-    top: 10vh;
+    top: 75px;
 }
 
 .login_titel h1 {
-    font-size: 1.5rem;
+    font-size: 24px;
 }
 
 .form_container {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 4em;
+    gap: 65px;
     align-items: center;
     position: relative;
 }
 
 .login_input {
-    margin-top: 15vh;
-    gap: 2em;
+    margin-top: 110px;
+    gap: 35px;
     display: flex;
-    height: 13vh;
+    height: 100px;
     position: relative;
 }
 
 .input_box {
     display: flex;
     flex-direction: column;
-    gap: .5em;
+    gap: 10px;
 }
 
 .input_box > input {
@@ -83,19 +83,20 @@ body {
 .registreer_box {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 15px;
     align-items: center;
+    font-weight: bold;
 }
 
 
 .login_admin_link {
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: 5px;
+    left: 5px;
 }
 
 .admin_link_knop {
-    min-width: 7vw;
+    min-width: 100px;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
