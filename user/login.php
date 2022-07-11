@@ -29,7 +29,7 @@ session_start();
                 </div>
 
                 <div class="input_box">
-                    <label>wachtwoord</label>
+                    <label>Wachtwoord</label>
                     <input type="password" name="wachtwoord" required placeholder="Wachtwoord">
                 </div>
 
