@@ -26,6 +26,8 @@
             VALUES('$user_id', '$artikel_id', '$artikel_naam', '$artikel_omschrijving', '$artikel_prijs', '$artikel_aantal', '$artikel_foto')") or die('error');
             header('Location: ../user/boeketten.php?Toegevoegd-in-winkelwagen-gelukt');
         }
+    } else {
+        header('Location: boeketten.php?Je-moet-ingelogd-zijn-om-winkelwagen-toevoegen');
     }
 }
 
@@ -33,7 +35,6 @@
 <!-- De getoonde artikelen in een formulier -->
 <section class="producten">
     <h2 class="titel_boeket">Boeketten</h2>
-    <p class="subtitel_boeket"> Je moet ingelogd zijn om naar winkelwagen toevoegen.</p>
     <div class="box-container">
         <?php
             // Gegevens selecteren van artikel en ophalen van de database//
