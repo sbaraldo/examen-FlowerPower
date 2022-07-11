@@ -87,8 +87,8 @@ if(isset($_GET['verwijder'])) {
                 </tr>
             </thead>
             <?php
-            // selecteert de adminuser (medewerkers) waarvan alleen de gegevens met rol en haalt gegevens van de database//
-                $select_admin = mysqli_query($conn, "SELECT * FROM adminuser WHERE rol ");
+            // selecteert de adminuser (medewerkers) waarvan alleen de gegevens met rol en sorteer op ascending (oplopend) haalt gegevens van de database//
+                $select_admin = mysqli_query($conn, "SELECT * FROM adminuser WHERE rol ORDER BY rol ASC ");
                 if(mysqli_num_rows($select_admin) > 0) 
                 {
                     while($row = mysqli_fetch_assoc($select_admin)) 
