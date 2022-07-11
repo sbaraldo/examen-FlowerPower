@@ -63,7 +63,7 @@ if(isset($_GET['verwijder'])) {
     $idartikel = $_GET['verwijder'];
     mysqli_query($conn, "DELETE FROM artikel WHERE idartikel = $idartikel");
     mysqli_query($conn, "DELETE FROM winkelwagen WHERE artikelid = $idartikel");
-    header('location: ../admin/adminproducten.php');
+    header('location: ../medewerker/adminproducten.php');
 }
 
 ?>
@@ -119,9 +119,9 @@ if(isset($_GET['verwijder'])) {
                             <td><?php echo $row['omschrijving']; ?></td>
                             <td>€ <?php echo $row['prijs']; ?></td>
                             <td>
-                                <a href="../admin/adminproducten_bewerken.php?bewerk=<?php echo $row['idartikel']?>"> 
+                                <a href="../medewerker/adminproducten_bewerken.php?bewerk=<?php echo $row['idartikel']?>"> 
                                 <button class="bewerken_knop">Bewerken</button></a>
-                                <a href="../admin/adminproducten.php?verwijder=<?php echo $row['idartikel']?>"> 
+                                <a href="../medewerker/adminproducten.php?verwijder=<?php echo $row['idartikel']?>"> 
                                 <button class="verwijder_knop">Verwijder</button></a>
                             </td>
                         </tr>

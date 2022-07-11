@@ -85,7 +85,7 @@ if(isset($_POST['product_bewerken'])) {
                             <input type="number"  min="0" placeholder="Prijs" value="<?php echo $row['prijs'] ?>" name="prijs" class="box">
                             <input type="file" accept="image/jpg, image/jpeg, image/png" name="foto" class="box">
                             <input type="submit" class="knop" name="product_bewerken" value="product bewerken">
-                            <a href="../admin/adminproducten.php" class="knop">Ga terug</a>
+                            <a href="../medewerker/adminproducten.php" class="knop">Ga terug</a>
                         </form>
                     <?php
                 }

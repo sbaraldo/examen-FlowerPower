@@ -7,14 +7,14 @@
         $idbestelling = $_POST['bestelling_id'];
         $update_betaling = $_POST['update_betaling'];
         mysqli_query($conn, "UPDATE bestelling SET status = '$update_betaling' WHERE idbestelling = $idbestelling") or die ('error');
-        header('Location: adminbestellingen.php?Bestelling-status-updated');    
+        header('Location: ../medewerker/adminbestellingen.php?Bestelling-status-updated');    
     }
 
     //Verwijder bestelling met GET methode, kijken is het leeg of gedeclareerd is dan query delete// 
     if(isset($_GET['verwijder'])) {
         $delete_id = $_GET['verwijder'];
         mysqli_query($conn, "DELETE FROM bestelling WHERE idbestelling = '$delete_id'") or die('error');
-        header('Location: adminbestellingen.php');
+        header('Location: ../medewerker/adminbestellingen.php');
     }
 ?>
 
@@ -56,7 +56,7 @@
                     <option value="Voltooid">Voltooid</option>
                 </select>
                 <input type="submit" name="update_bestelling" value="update" class="update_bestelling_optie_knop">
-                <a href="adminbestellingen.php?verwijder=<?php echo $fetch_bestelling['idbestelling']; ?>" class="verwijder_bestelling_knop" onclick="return confirm('verwijder dit bestelling?);">Verwijder</a>
+                <a href="../medewerker/adminbestellingen.php?verwijder=<?php echo $fetch_bestelling['idbestelling']; ?>" class="verwijder_bestelling_knop" onclick="return confirm('verwijder dit bestelling?);">Verwijder</a>
             </form>
         </div>
 
