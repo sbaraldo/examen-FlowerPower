@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Gegenereerd op: 11 jul 2022 om 01:42
+-- Gegenereerd op: 11 jul 2022 om 12:34
 -- Serverversie: 5.7.31
 -- PHP-versie: 7.3.21
 
@@ -37,15 +37,15 @@ CREATE TABLE IF NOT EXISTS `adminuser` (
   `wachtwoord` varchar(254) NOT NULL,
   `rol` int(11) NOT NULL,
   PRIMARY KEY (`idadmin`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `adminuser`
 --
 
 INSERT INTO `adminuser` (`idadmin`, `voornaam`, `tussenvoegsel`, `achternaam`, `email`, `wachtwoord`, `rol`) VALUES
-(22, 'Stefan', '', 'Baraldo', 'stefan@gmail.com', 'Baraldo', 1),
-(23, 'chris', '', 'houkes', 'chris@gmail.com', '1234', 2);
+(34, 'Stefan', '', 'Baraldo', 's.baraldo@gmail.com', 'Baraldo', 1),
+(23, 'Chris', '', 'Houkes', 'chris@gmail.com', '1234', 2);
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `artikel` (
   `prijs` int(11) NOT NULL,
   `foto` varchar(254) NOT NULL,
   PRIMARY KEY (`idartikel`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `artikel`
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `artikel` (
 INSERT INTO `artikel` (`idartikel`, `naam`, `omschrijving`, `prijs`, `foto`) VALUES
 (4, 'Rode Roos', 'Rode roos uit Nederland', 20, 'IMG-62cb3921d7d758.04095960.jpg'),
 (32, 'Roze roos', 'Roze roos', 40, 'IMG-62cb0db6d67187.71383734.jpg'),
-(33, 'Zonnebloem', 'Mooi zonnebloem', 40, 'IMG-62cb0dd0142f10.59122794.jpg');
+(33, 'Zonnebloem', 'Mooi zonnebloemen', 40, 'IMG-62cbf2f35ab966.60740638.jpg');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `bestelling` (
   `totaalprijs` int(11) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'Afwachting',
   PRIMARY KEY (`idbestelling`)
-) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `bestelling`
@@ -94,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `bestelling` (
 
 INSERT INTO `bestelling` (`idbestelling`, `userid`, `totaalproduct`, `totaalprijs`, `status`) VALUES
 (50, 2, ', Rode Roos (2), Zonnebloemen (1), Roze roos (1)', 100, 'Afwachting'),
-(51, 2, ', Zonnebloem (2), Rode Roos (3), Roze roos (1)', 180, 'Afwachting'),
-(52, 3, ', Zonnebloem (3), Roze roos (2), Rode Roos (1)', 220, 'Afwachting');
+(58, 3, ', Zonnebloem (1), Rode Roos (2), Roze roos (1)', 120, 'Afwachting'),
+(60, 3, ', Zonnebloem (1), Rode Roos (4), Roze roos (1)', 160, 'Afwachting');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `wachtwoordbv` varchar(254) NOT NULL,
   `rol` int(11) DEFAULT NULL,
   PRIMARY KEY (`iduser`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `winkelwagen` (
   `aantal` int(11) DEFAULT NULL,
   `foto` varchar(254) DEFAULT NULL,
   PRIMARY KEY (`idwinkelwagen`)
-) ENGINE=MyISAM AUTO_INCREMENT=272 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=296 DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
