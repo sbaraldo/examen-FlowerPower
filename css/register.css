@@ -80,12 +80,12 @@ section {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
-    border:  black 1px solid;
+    border: 1px solid;
 }
 
 .register_form button {
     padding: 5px;
     font-size: 15px;
     border-radius: 5px;
-    border: black solid 1px;
+    border: 1px solid;
 }
